@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+<ul data-role="listview" data-inset="true">
+<li>
+  <strong>设备分类:</strong>
+  <%= category_id_to_name(@device.category_id) %>
+</li>
+
+<li>
+  <strong>品牌:</strong>
+  <%= @device.brand %>
+</li>
+
+<li>
+  <strong>品牌型号:</strong>
+  <%= @device.brand_type %>
+</li>
+
+<li>
+  <strong>序列号:</strong>
+  <%= @device.serial_number %>
+</li>
+
+<li>
+  <strong>内部配置:</strong>
+  <%= @device.inward_config %>
+</li>
+
+<li>
+  <strong>外设配置:</strong>
+  <%= @device.external_config %>
+</li>
+
+<li>
+  <strong>分支机构:</strong>
+  <%= branch_id_to_name @device.branch_id %>
+</li>
+
+<li>
+  <strong>使用人:</strong>
+  <%= @device.member %>
+</li>
+
+<li>
+  <strong>用途:</strong>
+  <%= @device.purpose %>
+</li>
+
+<li>
+  <strong>检修联系:</strong>
+  <%= @device.fix %>
+</li>
+
+<li>
+  <strong>购置日期:</strong>
+  <%= @device.purchase %>
+</li>
+
+<li>
+  <strong>使用日期:</strong>
+  <%= @device.used %>
+</li>
+
+<li>
+  <strong>保修日期:</strong>
+  <%= @device.guaranteed %>
+</li>
+
+<li>
+  <strong>状态:</strong>
+  <%= device_status_to_string @device.status %>
+</li>
+
+<li>
+  <strong>图片:</strong>
+  <%= @device.face %>
+</li>
+
+<li>
+  <strong>网络地址:</strong>
+  <%= @device.network_address %>
+</li>
+<li>
+  <strong>安装地址:</strong>
+  <%= @device.installation_address %>
+</li>
+<li>
+  <strong>备注:</strong>
+  <%= @device.remarks %>
+</li>
+
+</ul>
+<div data-role="navbar" >
+  <ul>
+    <li><%= link_to '编辑信息', edit_device_path(@device) %></li>
+    <li><%= link_to '返回', devices_path %></li>
+    <li><%= link_to '设备图片', device_image_path(@device) %></li>
+  </ul>
+</div>

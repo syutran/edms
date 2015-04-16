@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @device_image.device.member+"的"+@device_image.device.brand %>
+  </p>
+  <p>全景图片:<br />
+  <%= image_tag @device_image.face, "style"=>"width:100%" %>
+</p>
+
+<%= link_to 'Edit', edit_device_image_path(@device_image.device_id) %> |
+<%= link_to 'Back', device_images_path %>

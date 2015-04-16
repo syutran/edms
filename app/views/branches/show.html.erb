@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Branchname:</strong>
+  <%= @branch.branchname %>
+</p>
+
+<p>
+  <strong>Coding:</strong>
+  <%= @branch.coding %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @branch.parent_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @branch.status %>
+</p>
+
+<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<%= link_to 'Back', branches_path %>

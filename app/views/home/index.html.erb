@@ -1,0 +1,13 @@
+<% title "Home" %>
+<ul data-role="listview" data-inset="true">
+  <% if current_user.status < 90 then %>
+    <li><%= link_to "设备管理", devices_path %></li>
+  <% else %>
+    <li><%= link_to "全辖设备管理", manage_devices_index_path %></li>
+    <li><%= link_to "设备类型管理", categories_path %></li>
+    <li><%= link_to "机构列表", branches_path %></li>
+    <li><%= link_to "下级管理员", members_path %></li>
+  <% end %>
+</ul>
+
+

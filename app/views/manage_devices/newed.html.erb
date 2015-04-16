@@ -1,0 +1,83 @@
+<ul data-role="listview">
+<li>
+  <strong>分类:</strong>
+  <%= category_id_to_name @new_device.category_id %>
+</li>
+
+<li>
+  <strong>品牌:</strong>
+  <%= @new_device.brand %>
+</li>
+
+<li>
+  <strong>型号:</strong>
+  <%= @new_device.brand_type %>
+</li>
+
+<li>
+  <strong>序列号:</strong>
+  <%= @new_device.serial_number %>
+</li>
+
+<li>
+  <strong>内部配置:</strong>
+  <%= @new_device.inward_config %>
+</li>
+
+<li>
+  <strong>外设配置:</strong>
+  <%= @new_device.external_config %>
+</li>
+
+<li>
+  <strong>分支机构:</strong>
+  <%= @new_device.branch_id %>
+</li>
+
+<li>
+  <strong>使用人:</strong>
+  <%= @new_device.member %>
+</li>
+
+<li>
+  <strong>用途:</strong>
+  <%= @new_device.purpose %>
+</li>
+
+<li>
+  <strong>检修方式:</strong>
+  <%= @new_device.fix %>
+</li>
+
+<li>
+  <strong>购置日期:</strong>
+  <%= @new_device.purchase %>
+</li>
+
+<li>
+  <strong>投入使用日期:</strong>
+  <%= @new_device.used %>
+</li>
+
+<li>
+  <strong>维保到期:</strong>
+  <%= @new_device.guaranteed %>
+</li>
+
+<li>
+  <strong>报废日期:</strong>
+  <%= @new_device.reject %>
+</li>
+
+<li>
+  <strong>状态:</strong>
+  <%= @new_device.status %>
+</li>
+
+<li>
+  <strong>图片:</strong>
+  <%= @new_device.face %>
+</li>
+</ul>
+<div><br /></div>
+<%= link_to '认证通过', manage_devices_pass_newed_path(@new_device) , "class"=>"ui-btn" %> 

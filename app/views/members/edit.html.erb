@@ -1,0 +1,8 @@
+<%= form_for @member, :url => { :controller => 'members', :action => 'update', :id => @member } do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :branch_id, "分配所属机构" %>
+  <%= f.select :branch_id, @branches %>
+  <%= f.hidden_field :status %>
+  <%= f.submit "确认更新" %>
+<% end %>

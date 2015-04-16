@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= yield (:title) || "设备管理系统" %></title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application' %>
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<%= csrf_meta_tags %>
+</head>
+<body>
+<div data-role="page">
+  <div data-role="header">
+    <a href="javascript:history.back()" data-icon="back">返回</a>
+    <h2><%= yield(:title) || "设备管理系统" %></h2>
+    <%= link_to "首页", home_index_path,"data-icon"=>"home" %>
+    <% if current_user %>
+      <%= render :partial => "menu" %>
+  <% end %>
+  </div>
+  <div role="main" class="ui-content" data-theme="d">
+    <div class="ui-bar"><%= flash[:notice] -%><%= alert -%></div>
+    <%= yield %>
+  </div>
+  <div data-role="footer" data-theme="a">
+  </div>
+</div>
+<script type="text/javascript">
+</script>
+</body>
+</html>

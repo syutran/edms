@@ -1,0 +1,20 @@
+<% title "注册为设备管理员" %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+<%= f.label :usrename, "名字" %>
+<%= f.text_field :username, autofocus: true %>
+<%= f.label :group_id, "群组代号" %>
+<%= f.text_field :group_id %>
+<%= f.label :email, "用于登录的邮箱账号" %>
+<%= f.email_field :email %>
+<%= f.label :password, "设置登录密码" %>
+<% if @validatable %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+<% end %>
+<%= f.password_field :password, autocomplete: "off" %>
+<%= f.label :password_confirmation, "再次确信密码" %>
+<%= f.password_field :password_confirmation, autocomplete: "off" %>
+<%= f.submit "确认注册" %>
+<% end %>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,23 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+  <div id="error_explanation">
+  <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+  <ul>
+    <% @category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+  <% end %>
+
+<%= f.label :name, "名称" %>
+<%= f.text_field :name %>
+<%= f.label :explain, "类型说明" %>
+<%= f.text_area :explain %>
+<%= f.label :parent_id, "上级类" %>
+<%= f.select :parent_id, @parent_categories %>
+<%= f.hidden_field :branch_id %>
+<div class="actions">
+  <%= f.submit "确认提交" %>
+</div>
+<% end %>

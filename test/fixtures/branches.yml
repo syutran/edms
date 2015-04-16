@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branchname: MyString
+  coding: MyString
+  parent_id: 1
+  status: 1
+
+two:
+  branchname: MyString
+  coding: MyString
+  parent_id: 1
+  status: 1

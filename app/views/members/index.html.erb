@@ -1,0 +1,6 @@
+<% title "机构管理员" %>
+<ul data-role="listview" data-inset="true">
+  <% @members.each do |member| %>
+    <li><%= link_to member.username+">"+member.email, edit_member_path(member) %></li>
+<% end %>
+</ul>

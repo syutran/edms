@@ -1,0 +1,29 @@
+<% title '编辑'+current_user.username+'的资料' %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :username, '我的名字' %>
+  <%= f.text_field :username, autofocus: true %>
+  <% if resource.status < 1 then %>
+    <%= f.label :group_id,  '我的群组' %>
+    <%= f.text_field :group_id %>
+  <% end %>
+
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.label :password, '修改密码' %> <i>(leave blank if you don't want to change it)</i>
+  <%= f.password_field :password, autocomplete: "off" %>
+  <%= f.label :password_confirmation, '确认修改的密码' %>
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.label :current_password, '原密码' %> <i>(we need your current password to confirm your changes)</i>
+  <%= f.password_field :current_password, autocomplete: "off" %>
+
+  <%= f.submit "确认提交" %>
+<% end %>
+<p>您可以点击这个链接<%= link_to "创建一个总部", new_branch_path %>一个总部机构，并成为总部的管理员。您的总部ID就是所辖的群组号，您将不再属于另一个群组和机构。</p>
+
+<h3>删除这个账号</h3>
+
+<p>不高兴就删除了吧? <%= button_to "确认删除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

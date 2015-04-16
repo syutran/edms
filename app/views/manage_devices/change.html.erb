@@ -1,0 +1,148 @@
+<ul data-role="listview" data-inset="true">
+  <li><strong>分类:</strong></li>
+  <li><%= category_id_to_name @source_device.category_id %></li>
+  <% if @source_device.category_id != @change_device.category_id %>
+    <li><font color="FF0000">
+    <%= category_id_to_name @change_device.category_id %>
+</font></li>
+  <% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li><strong>品牌:</strong></li>
+  <li><%= @source_device.brand %></li>
+  <% if @source_device.brand != @change_device.brand %>
+    <li><font color="FF0000">
+      <%= @change_device.brand %>
+    </font></li>
+  <% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li><strong>型号:</strong></li>
+  <li><%= @source_device.brand_type %></li>
+  <% if @source_device.brand_type != @change_device.brand_type %>
+    <li><font color="FF0000">
+      <%= @change_device.brand_type %>
+    </font></li>
+  <% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li><strong>序列号:</strong></li>
+  <li><%= @source_device.serial_number %></li>
+  <% if @source_device.serial_number != @change_device.serial_number %>
+    <li><font color="FF0000">
+      <%= @change_device.serial_number %>
+    </font></li>
+  <% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li><strong>内部配置:</strong></li>
+  <li><%= @source_device.inward_config %></li>
+  <% if @source_device.inward_config != @change_device.inward_config %>
+    <li><font color="FF0000">
+      <%= @change_device.inward_config %>
+  </font></li>
+<% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li><strong>外设配置:</strong></li>
+  <li><%= @source_device.external_config %></li>
+  <% if @source_device.external_config != @change_device.external_config %>
+    <li><font color="FF0000">
+      <%= @change_device.external_config %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>使用人:</strong></li>
+    <li><%= @source_device.member %></li>
+  <% if @source_device.member != @change_device.member %>
+    <li><font color="FF0000">
+      <%= @change_device.member %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>用途:</strong></li>
+    <li><%= @source_device.purpose %></li>
+  <% if @source_device.purpose != @change_device.purpose %>
+    <li><font color="FF0000">
+      <%= @change_device.purpose %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>检修方式:</strong></li>
+    <li><%= @source_device.fix %></li>
+  <% if @source_device.fix != @change_device.fix %>
+    <li><font color="FF0000">
+      <%= @change_device.fix %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>购置日期:</strong></li>
+    <li><%= @source_device.purchase %></li>
+  <% if @source_device.purchase != @change_device.purchase %>
+    <li><font color="FF0000">
+      <%= @change_device.purchase %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>投入使用日期:</strong></li>
+    <li><%= @source_device.used %></li>
+  <% if @source_device.used != @change_device.used %>
+    <li><font color="FF0000">
+      <%= @change_device.used %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <ul data-role="listview" data-inset="true">
+    <li><strong>维保到期:</strong></li>
+    <li><%= @source_device.guaranteed %></li>
+  <% if @source_device.guaranteed != @change_device.guaranteed %>
+    <li><font color="FF0000">
+      <%= @change_device.guaranteed %>
+    </font></li>
+  <% end %>
+</ul>
+  <ul data-role="listview" data-inset="true">
+    <li><strong>网络地址:</strong></li>
+    <li><%= @source_device.network_address %></li>
+  <% if @source_device.network_address != @change_device.network_address %>
+    <li><font color="FF0000">
+      <%= @change_device.network_address %>
+    </font></li>
+  <% end %>
+</ul>
+  <ul data-role="listview" data-inset="true">
+    <li><strong>安装地址:</strong></li>
+    <li><%= @source_device.installation_address %></li>
+  <% if @source_device.installation_address != @change_device.installation_address %>
+    <li><font color="FF0000">
+      <%= @change_device.installation_address %>
+    </font></li>
+  <% end %>
+</ul>
+  <ul data-role="listview" data-inset="true">
+    <li><strong>备注:</strong></li>
+    <li><%= @source_device.remarks %></li>
+  <% if @source_device.remarks != @change_device.remarks %>
+    <li><font color="FF0000">
+      <%= @change_device.remarks %>
+    </font></li>
+  <% end %>
+  </ul>
+
+  <%= link_to '变更通过', manage_devices_pass_change_path(@change_device), "data-role"=>"button" %> 

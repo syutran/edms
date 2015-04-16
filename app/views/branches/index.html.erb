@@ -1,0 +1,7 @@
+<ul data-role="listview" data-inset="true">
+  <% @branches.each do |branch| %>
+    <li><%= link_to branch.coding+"=>"+branch.branchname, branch %></li>
+<% end %>
+</ul>
+
+<%= link_to 'New Branch', new_branch_path %>

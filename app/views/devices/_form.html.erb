@@ -1,0 +1,52 @@
+<%= form_for(@device) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :category_id, "设备分类" %>
+    <%= f.select :category_id, sub_categories %>
+    <%= f.label :brand, "品牌" %>
+    <%= f.text_field :brand %>
+    <%= f.label :brand_type, "品牌型号" %>
+    <%= f.text_field :brand_type %>
+    <%= f.label :serial_number, "序列号" %>
+    <%= f.text_field :serial_number %>
+    <%= f.label :inward_config, "内部配置" %>
+    <%= f.text_area :inward_config %>
+    <%= f.label :external_config, "外部设备" %>
+    <%= f.text_area :external_config %>
+    <%= f.label :member, "使用人（保管人）" %>
+    <%= f.text_field :member %>
+    <%= f.label :purpose, "用途说明" %>
+    <%= f.text_area :purpose %>
+    <%= f.label :fix, "检修联系人（方式）" %>
+    <%= f.text_field :fix %>
+    <%= f.label :purchase, "购置日期（出厂）" %>
+    <%= f.text_field :purchase, "type"=>"date" %>
+    <%= f.label :used, "投入使用日期" %>
+    <%= f.text_field :used, "type"=>"date" %>
+    <%= f.label :guaranteed, "过保日期" %>
+    <%= f.text_field :guaranteed, "type"=>"date" %>
+    <%= f.label :face, "图片链接" %>
+    <%= f.text_field :face %>
+    <%= f.label :network_address, "网络地址" %>
+    <%= f.text_field :network_address %>
+    <%= f.label :installation_address, "安装地址" %>
+    <%= f.text_field :installation_address %>
+    <%= f.label :remarks, "备注" %>
+    <%= f.text_area :remarks %>
+    <%= f.hidden_field :status %>
+    <%= f.hidden_field :group_id %>
+    <%= f.hidden_field :branch_id %>
+  <div class="actions">
+    <%= f.submit "确认提交" %>
+  </div>
+<% end %>

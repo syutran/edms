@@ -1,0 +1,20 @@
+<%= form_for @device_image, :html => { :multipart => true, "data-ajax"=>false} do |f| %>
+  <% if @device_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device_image.errors.count, "error") %> prohibited this device_image from being saved:</h2>
+
+      <ul>
+      <% @device_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div data-role="bar">
+    <%= f.text_field :device_id %>
+    <%= f.label :face,"主图" %>
+    <%= image_tag @device_image.face unless @device_image.face.nil? %>
+    <%= f.file_field :face %>
+    <%= f.submit %>
+  </div>
+<% end %>
