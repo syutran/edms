@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><%= yield (:title) || "设备管理系统" %></title>
+<title><%= "设备管理系统" %></title>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application' %>
 <meta name="viewport" content="width=device-width, initial-scale=1" >
@@ -18,7 +18,9 @@
   <% end %>
   </div>
   <div role="main" class="ui-content" data-theme="d">
-    <div class="ui-bar"><%= flash[:notice] -%><%= alert -%></div>
+    <% if flash[:notice] %>
+      <p id="notice"><%= flash[:notice] -%><%= alert -%></p>
+    <% end %>
     <%= yield %>
   </div>
   <div data-role="footer" data-theme="a">

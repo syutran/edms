@@ -10,13 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-    <%= f.label :category_id, "设备分类" %>
-    <%= f.select :category_id, sub_categories %>
-    <%= f.label :brand, "品牌" %>
+      <%= f.label :category_id, "设备分类" %>
+  <fieldset class="ui-grid-a">
+  <div class="ui-block-a" style="width:85%">
+      <%= f.select :category_id, sub_categories %>
+    </div>
+    <div class="ui-block-b" style="width:14%">
+  <a href="#categories" data-role="button" data-inline="true" data-icon="bars" class="ui-btn ui-icon-grid ">?</a>
+    </div>
+    <div><%= f.label :brand, "品牌/厂商" %></div>
+  <div class="ui-block-a" style="width:85%">
     <%= f.text_field :brand %>
+    </div>
+    <div class="ui-block-b" style="width:14%">
+  <a href="#brand" data-role="button" data-inline="true" data-icon="bars" class="ui-btn ui-icon-grid ">i</a>
+    </div>
     <%= f.label :brand_type, "品牌型号" %>
+  <div class="ui-block-a" style="width:85%">
     <%= f.text_field :brand_type %>
+    </div>
+    <div class="ui-block-b" style="width:14%">
+  <a href="#brand_type" data-role="button" data-inline="true" data-icon="bars" class="ui-btn ui-icon-grid ">i</a>
+    </div>
+  </fieldset>
     <%= f.label :serial_number, "序列号" %>
     <%= f.text_field :serial_number %>
     <%= f.label :inward_config, "内部配置" %>
@@ -48,5 +64,40 @@
     <%= f.hidden_field :branch_id %>
   <div class="actions">
     <%= f.submit "确认提交" %>
+  </div>
+  <div data-role="panel" id="categories" data-position="right" data-display="overlay" data-theme="b" >
+    <h3>分类说明</h3>
+    <% @categories.each do |category| %>
+      <div>
+      <strong><%= category.parent.name+">>"+category.name+" 说明：" %></strong>
+    <p><%= category.explain %></p>
+</div>
+  <% end %>
+  </div>
+  <div data-role="panel" id="brand" data-position="right" data-display="overlay" data-theme="b">
+    <h3>人家都填啥？</h3>
+    <% @brands.each do |brand| %>
+      <input id="brandbutton<%= brand %>" type="button" data-mini="true" value="<%= brand %>"/>
+    <% end %>
+    <script>
+      $(function(){
+        $("input[id^='brandbutton']").click(function(){
+            $("#device_brand").val($(this).val());
+        })
+      })
+    </script>
+  </div>
+  <div data-role="panel" id="brand_type" data-position="right" data-display="overlay" data-theme="b">
+    <h3>人家都填啥？</h3>
+    <% @modes.each do |mode| %>
+      <input id="brandtypebutton<%= mode %>" type="button" data-mini="true" value="<%= mode %>" />
+  <% end %>
+    <script>
+      $(function(){
+        $("input[id^='brandtypebutton']").click(function(){
+            $("#device_brand_type").val($(this).val());
+        })
+      })
+    </script>
   </div>
 <% end %>

@@ -1,3 +1,36 @@
-<% @branch_devices.each do |device| %>
-  <%= device.id %>
+<% title "#{@branch.branchname}" unless @branch.blank? %>
+<% if @mode == 1 %>
+  <h3>list with order by category</h3>
+<% @branch_devices_groups.each do |category,devices| %>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+  <strong>分类：<%= category.name %>，数量：<%= devices.length %></strong>
+  </li>
+<% devices.each do |device| %>
+  <li>
+  <a href"#">
+    <%= device.photos.blank? ? image_tag("") : image_tag(device.photos.first.image.url(:thumb)) %>
+    <h2><%= device.brand+"  "+device.brand_type %></h2>
+    <p><%= "使用人：#{device.member}  使用状态： #{device_status_to_string(device.status)}" %></p>
+  </a>
+  <%= link_to "详细信息", manage_show_path(device.id) %>
+  </li>
 <% end %>
+</ul>
+<% end %>
+  <% else %>
+<h2>List with ordery by member</h2>
+<% @branch_devices.each do |device| %>
+<ul data-role="listview">
+<li>
+<a href"#">
+  <%= (image_tag device.device_image.face.url(:thumb) unless device.device_image.face.blank?) unless device.device_image.blank? %>
+  <h2><%= device.member+"  "+device.brand+"  "+device.brand_type %></h2>
+  <p><%= device_status_to_string(device.status)+device.brand %></p>
+</a>
+<%= link_to "详细信息", manage_show_path(device.id) %>
+</li>
+</ul>
+<% end %>
+  <% end %>

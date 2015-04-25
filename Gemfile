@@ -21,6 +21,9 @@ gem 'devise'
 gem 'execjs'
 gem 'therubyracer'
 gem 'paperclip', '~> 4.2'
+gem 'capistrano-rails', :group=> :development
+gem 'capistrano-passenger', :group => :development
+gem 'spreadsheet'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

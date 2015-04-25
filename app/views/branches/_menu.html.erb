@@ -1,0 +1,10 @@
+<div data-role="navbar">
+  <ul>
+    <li><%= link_to '所有机构', branches_path, "data-icon"=>"grid" %></li>
+    <% if controller.action_name == "show" %>
+      <li><%= link_to '编辑机构', edit_branch_path(@branch), "data-icon"=>"gear" %></li>
+    <li><%= link_to '删除机构', branch_path(@branch),:method => :delete,"data-icon"=>"delete" %></li>
+    <% end %>
+    <li><%= link_to '增加机构', new_branch_path, "data-icon"=>"plus" %></li>
+  </ul>
+</div>

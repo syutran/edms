@@ -1,29 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<ul data-role="listview">
+<li>
+  <strong>分类名称:</strong>
   <%= @category.name %>
-</p>
+</li>
 
-<p>
-  <strong>Explain:</strong>
+<li>
+  <strong>说明:</strong>
   <%= @category.explain %>
-</p>
+</li>
 
-<p>
-  <strong>Level:</strong>
-  <%= @category.level %>
-</p>
+<li>
+  <strong>分级:</strong>
+  <%= @category.level == 0 ? "顶级分类" : "二级分类" %>
+</li>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @category.parent_id %>
-</p>
+<li>
+  <strong>上级类型:</strong>
+  <%= @category.parent_id == 0 ? "顶级分类没有上级类" : ""+@category.parent.name %>
+</li>
 
-<p>
-  <strong>Branch:</strong>
-  <%= @category.branch_id %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Edit', edit_category_path(@category), "data-role"=>"button" %> 
+<%= link_to 'Back', categories_path, "data-role"=>"button" %>

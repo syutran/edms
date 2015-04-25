@@ -1,0 +1,16 @@
+<% title current_user.branch.branchname -%>
+<% @devices_groups.each do |category,devices| %>
+  <ul data-role="listview" data-inset="true">
+    <li><strong><%= "#{category.name} 共有 #{devices.length} 台设备" %></strong></li>
+  <% devices.each do |device| %>
+   <li>
+    <a href"#">
+      <%= device.photos.blank? ? image_tag("") : image_tag(device.photos.first.image.url(:thumb)) %>
+      <h6><%= "#{device.brand} #{device.brand_type}" %></h6>
+    <p><%= "设备状态：#{device_status_to_string(device.status)}，设备使用人：#{device.member}"  %></p>
+  </a>
+    <%= link_to "详细信息", device %>
+    </li>
+  <% end %>
+</ul>
+<% end %>

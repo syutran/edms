@@ -1,4 +1,4 @@
-<% title '编辑'+current_user.username+'的资料' %>
+<% title current_user.username %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -13,11 +13,11 @@
   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <%= f.label :password, '修改密码' %> <i>(leave blank if you don't want to change it)</i>
+  <%= f.label :password, '修改密码' %> <i>(不改就空着)</i>
   <%= f.password_field :password, autocomplete: "off" %>
   <%= f.label :password_confirmation, '确认修改的密码' %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  <%= f.label :current_password, '原密码' %> <i>(we need your current password to confirm your changes)</i>
+  <%= f.label :current_password, '原密码' %> <i>(需要您的密码才能变更资料)</i>
   <%= f.password_field :current_password, autocomplete: "off" %>
 
   <%= f.submit "确认提交" %>

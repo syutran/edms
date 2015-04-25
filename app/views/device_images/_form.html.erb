@@ -10,11 +10,102 @@
       </ul>
     </div>
   <% end %>
-  <div data-role="bar">
-    <%= f.text_field :device_id %>
+    <%= f.hidden_field :device_id %>
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
     <%= f.label :face,"主图" %>
-    <%= image_tag @device_image.face unless @device_image.face.nil? %>
-    <%= f.file_field :face %>
-    <%= f.submit %>
   </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.face.url, "style"=>"width:100%" unless @device_image.face.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :face %>
+  </div>
+</div>
+<br />
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :tag,"设备标签" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.tag.url, "style"=>"width:100%" unless @device_image.tag.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :tag %>
+  </div>
+</div>
+<br />
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :feature,"特征照片" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.feature.url, "style"=>"width:100%" unless @device_image.feature.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :feature %>
+  </div>
+  <br />
+</div>
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :inward,"内部配置" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.inward.url, "style"=>"width:100%" unless @device_image.inward.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :inward %>
+  </div>
+</div>
+<br />
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :externel,"外部配置" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.external.url, "style"=>"width:100%" unless @device_image.external.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :external %>
+  </div>
+</div>
+<br />
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :other_side,"背面照" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.other_side.url, "style"=>"width:100%" unless @device_image.other_side.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :other_side %>
+  </div>
+</div>
+<br />
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :agreement,"合同" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.agreement.url, "style"=>"width:100%" unless @device_image.agreement.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :agreement %>
+  </div>
+  <br />
+</div>
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-bar ui-bar-a">
+    <%= f.label :receipt,"票证" %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= image_tag @device_image.receipt.url, "style"=>"width:100%" unless @device_image.receipt.blank? %>
+  </div>
+  <div class="ui-body ui-body-a">
+    <%= f.file_field :receipt %>
+  </div>
+</div>
+    <%= f.submit "确认提交" %>
+  
 <% end %>

@@ -1,18 +1,16 @@
 <% title current_user.branch.branchname -%>
-<% @devices.each do |device| %>
+<% @devices_groups.each do |member,devices| %>
   <ul data-role="listview" data-inset="true">
-    <li><%= link_to "["+device_status_to_string(device.status)+"]"+device.member+"  "+device.category.name+"  "+device.brand+"  "+device.brand_type, device %></li>
-</ul>
-<% end %>
-
-<%= link_to 'New Device', new_device_path %>
-<div data-role="navbar">
-  <ul>
-    <% if current_user %>
-      <li><%= link_to "退出系统", destroy_user_session_path, :method => :delete, :html=>{:data=>{:ajax => "false"}} %></li>
-    <li><%= link_to "edit_me", edit_user_registration_path(:user) %></li>
-  <% else %>
-    <li><%= link_to "注册" %></li>
+    <li><%= "#{member} 使用了下面 #{devices.length} 台设备" %></li>
+  <% devices.each do |device| %>
+   <li>
+    <a href"#">
+      <%= device.photos.blank? ? image_tag("") : image_tag(device.photos.first.image.url(:thumb)) %>
+    <h3><%= "["+device_status_to_string(device.status)+"]"+device.member %></h3>
+    <p><%= device.brand+" "+device.brand_type %></p>
+  </a>
+    <%= link_to "详细信息", device %>
+    </li>
   <% end %>
 </ul>
-</div>
+<% end %>

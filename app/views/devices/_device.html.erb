@@ -1,0 +1,167 @@
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>分类:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= category_id_to_name device.category_id %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>品牌/厂商:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.brand %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>品牌型号:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.brand_type %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>序列号:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.serial_number %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>内部配置:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.inward_config %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>外部配置:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.external_config %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>所属机构:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.branch.branchname %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>使用保管人:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.member %>
+</div>
+</div>
+
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>用途:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.purpose %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>检修方式:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.fix %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>购置日期:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.purchase %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>投入使用日期:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.used %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>维保到期:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.guaranteed %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>报废日期:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.reject %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>状态:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device_status_to_string device.status %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>网络地址:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.network_address %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>安装地址:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.installation_address %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>图片:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.face %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+  <strong>备注信息:</strong>
+</div>
+<div class="ui-body ui-body-a">
+  <%= device.remarks %>
+</div>
+</div>
+
+<div class="ui-corner-all custom-corners">
+<div class="ui-body ui-body-a">
+  <%= link_to "图片信息", device_photos_path(device), "data-role"=>"button" %>
+</div>
+</div>

@@ -1,24 +1,25 @@
 <%= form_for(@branch) do |f| %>
   <% if @branch.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+  <div id="error_explanation">
+  <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
 
-      <ul>
-      <% @branch.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+    <% @branch.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
   <% end %>
 
-    <%= f.label :branchname,"机构名称" %>
-    <%= f.text_field :branchname %>
-    <%= f.label :coding, "机构编号" %>
-    <%= f.text_field :coding %>
-    <%= f.hidden_field :admin_id %>
-    <%= f.hidden_field :parent_id %>
+<%= f.label :branchname,"机构名称" %>
+<%= f.text_field :branchname %>
+<%= f.label :coding, "机构编号" %>
+<%= f.text_field :coding %>
+<%= f.hidden_field :group_id %>
+<%= f.hidden_field :parent_id %>
+<%= f.hidden_field :user_id %>
 
-  <div class="actions">
-    <%= f.submit "确认提交" %>
-  </div>
+<div class="actions">
+  <%= f.submit "确认提交" %>
+</div>
 <% end %>

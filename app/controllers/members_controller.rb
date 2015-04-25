@@ -7,12 +7,17 @@ class MembersController < ApplicationController
   def show
   end
   def edit
-    @branches = Branch.where("admin_id = ? ",current_user.id ).collect{|c|[c.branchname,c.id]}
+    @branches = Branch.where("group_id = ? ",current_user.group_id ).collect{|c|[c.branchname,c.id]}
   end
   def update
-    if member_params[:status] == 99
+    branch_status = Branch.find(member_params[:branch_id]).status
+    if branch_status == 99
       @member.update(member_params)
-      @member.update(status: 1) # 一旦被主管设置了所属网点号，把用户的status设置为1，让用户不能再变更group_id
+      @member.update(status: 99) # 一旦被主管设置了所属网点号，把用户的status设置为1，让用户不能再变更group_id
+      redirect_to :action => :index
+    elsif branch_status == 1
+      @member.update(member_params)
+      @member.update(status: 1)
       redirect_to :action => :index
     else
       redirect_to members_path, :flash => {:notice => "你无权设置一级管理员～"}

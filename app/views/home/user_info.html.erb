@@ -1,0 +1,7 @@
+<ul data-role="listview" data-inset="true">
+  <li><strong>名字:  </strong><%= current_user.username %></li>
+  <li><strong>Email:  </strong><%= current_user.email %></li>
+  <li><strong>管理单位: </strong><%= current_user.branch ? current_user.branch.branchname : "您还没有被分配管理单位～" %></li>
+  <li><%= link_to "编辑信息", edit_user_registration_path %>
+  <li><%= link_to "退出系统", destroy_user_session_path, :method => 'get', :html=>{:data=>{:ajax => "false"}} %></li>
+</ul>

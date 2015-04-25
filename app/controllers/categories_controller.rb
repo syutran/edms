@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where("branch_id = ? and level = 0", current_user.group_id)
   end
 
   # GET /categories/1
@@ -23,7 +23,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @parent_categories = Category.where(:branch_id => current_user.branch.id, :level => 0).collect{|c|[c.name,c.id]}
+    selfid = Category.find(params[:id])
+    @parent_categories = Category.where("branch_id = ? and level = 0 and id <> ? ",current_user.branch.id,selfid.id).collect{|c|[c.name,c.id]}
     @parent_categories << ["顶级类",0]
   end
 

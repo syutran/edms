@@ -1,0 +1,85 @@
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>设备:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= @device_image.device.member+"的"+@device_image.device.brand %>
+</div>
+</div>
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>全景图片:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.face.url, "style"=>"width:100%" unless @device_image.face.blank? %>
+</div>
+</div>
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>设备标签:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.tag.url, "style"=>"width:100%" unless @device_image.tag.blank? %>
+</div>
+</div>
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>特征图片:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.feature.url, "style"=>"width:100%" unless @device_image.feature.blank? %>
+</div>
+</div>
+
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>内部图片:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.inward.url, "style"=>"width:100%" unless @device_image.inward.blank? %>
+</div>
+</div>
+
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>外设图片:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.external.url, "style"=>"width:100%" unless @device_image.external.blank? %>
+</div>
+</div>
+
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>背面照:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.other_side.url, "style"=>"width:100%" unless @device_image.other_side.blank? %>
+</div>
+</div>
+
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>相关合同资料:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.agreement.url, "style"=>"width:100%" unless @device_image.agreement.blank? %>
+</div>
+</div>
+
+<br />
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>票证:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= image_tag @device_image.receipt.url, "style"=>"width:100%" unless @device_image.receipt.blank? %>
+</div>
+</div>

@@ -5,7 +5,7 @@ class BranchesController < ApplicationController
   # GET /branches
   # GET /branches.json
   def index
-    @branches = Branch.where(" admin_id = ? ", current_user.id)
+    @branches = Branch.where(" group_id = ? ", current_user.group_id).order("coding")
   end
 
   # GET /branches/1
@@ -16,7 +16,9 @@ class BranchesController < ApplicationController
   # GET /branches/new
   def new
     @branch = Branch.new
-    @branch.admin_id=current_user.id
+    @branch.group_id=current_user.group_id if current_user.group_id
+    @branch.parent_id = current_user.group_id
+    @branch.user_id = current_user.id
   end
 
   # GET /branches/1/edit
@@ -71,6 +73,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:branchname, :coding, :parent_id, :admin_id, :status)
+      params.require(:branch).permit(:branchname, :coding, :parent_id, :group_id, :status, :user_id)
     end
 end

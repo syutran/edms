@@ -1,24 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Branchname:</strong>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>机构名称:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
   <%= @branch.branchname %>
-</p>
-
-<p>
-  <strong>Coding:</strong>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>机构编号:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
   <%= @branch.coding %>
-</p>
+</div>
+</div>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @branch.parent_id %>
-</p>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>机构属性:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= @branch.status == 99 ? "总部机构":"分支机构" %>
+</div>
+</div>
+<div class="ui-corner-all custom-corners">
+  <div class="ui-bar ui-bar-a">
+    <strong>机构ID:</strong>
+  </div>
+  <div class="ui-body ui-body-a">
+  <%= @branch.id %>
+</div>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @branch.status %>
-</p>
-
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
+<%= link_to '编辑信息', edit_branch_path(@branch), "data-role"=>"button" %> 

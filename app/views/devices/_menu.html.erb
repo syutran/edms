@@ -1,6 +1,13 @@
+<% if controller.controller_name == "devices" %>
 <div data-role="navbar">
 <ul>
   <li><%= link_to "新增设备", new_device_path, "data-icon"=>"plus" %></li>
   <li><%= link_to "设备列表", devices_path, "data-icon"=>"grid" %></li>
+  <li><%= link_to "分类列表", category_device_path(1), "data-icon"=>"grid" %></li>
+  <% if controller.action_name == "show" %>
+    <li><%= link_to '编辑设备', edit_device_path, "data-icon"=>"edit" %></li>
+    <li><%= link_to '删除设备', device_path, :method => :delete, :confirm => "您确信要删除这个设备吗？", "data-icon"=>"delete" %></li>
+  <% end %>
 </ul>
 </div>
+<% end %>

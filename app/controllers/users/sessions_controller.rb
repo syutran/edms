@@ -13,9 +13,9 @@ class Users::SessionsController < Devise::SessionsController
 
    #DELETE /resource/sign_out
   # def destroy
-  #   super
-  #   redirect_to new_branch_path
-   #end
+   #  super
+    # redirect_to new_branch_path
+ # end
  # def destroy
  #   respond_to do |format|
  #     format.html{ super }

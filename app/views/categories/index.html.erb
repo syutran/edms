@@ -1,7 +1,10 @@
-<p id="notice"><%= notice %></p>
-  <ul data-role="listview" data-inset=true>
     <% @categories.each do |category| %>
+  <ul data-role="listview" data-inset=true>
       <li> <%= link_to category.name, category %></li>
+      <% unless category.children.blank? %>
+        <% category.children.all.each do |c| %>
+          <li><%= link_to category.name+">>"+c.name, c %></li> 
+        <% end %>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
-<%= link_to 'New Category', new_category_path %>

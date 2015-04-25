@@ -1,24 +1,29 @@
 Rails.application.routes.draw do
 
-  get 'new_device_image/:id' => "device_images#new", :as => "new_device_image"
-  resources :device_images
-
-  scope :controller => "manage_devices", :path => "/manage_devices", :as => "manage_devices" do
+  scope :controller => "manage_devices", :path => "/manage", :as => "manage" do
+    get 'index'
     get 'newed/:id' => :newed, :as => "newed"
     get 'change/:id' => :change, :as => "change"
     get 'pass_newed/:id' => :pass_newed, :as => "pass_newed"
     get 'pass_change/:id' => :pass_change, :as => "pass_change"
-    get 'branch_devices/:id/list/:mode' => :branch_devices, :as => "branch_devices"
+    get 'branch_devices/:branch_id/list/:mode' => :branch_devices, :as => "branch_devices"
+    get 'show/:id' => :show, :as => "show"
   end
-  get 'manage_devices/index'
 
-  resources :devices
+  resources :devices do 
+    member do
+      get 'category'
+    end
+    resources :photos
+  end
+
   resources :categories
 
   resources :branches
   resources :members
 
   get 'home/index' 
+  get 'home/user_info'
 
   # devise_for :users, controllers: { session: 'users/sessions' }
   devise_for :users do

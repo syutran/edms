@@ -2,18 +2,18 @@
 <ul data-role="listview" data-inset=true>
   <li>新增设备</li>
   <% @new_devices.each do |device| %>
-    <li> <%= link_to device.branch.branchname, manage_devices_newed_path(device) %></li>
+    <li> <%= link_to device.branch.branchname+device.category.name+device.brand, manage_newed_path(device) %></li>
 <% end %>
 </ul>
 <ul data-role="listview" data-inset=true>
-  <li>变更设备</li>
+  <li>变更设备信息</li>
   <% @changed_devices.each do |device| %>
-    <li> <%= link_to device.branch.branchname, manage_devices_change_path(device) %></li>
+    <li> <%= link_to device.branch.branchname, manage_change_path(device) %></li>
 <% end %>
 </ul>
 <ul data-role="listview" data-inset=true>
   <li>分支机构</li>
   <% @branches.each do |branch| %>
-    <li> <%= link_to branch.branchname, manage_devices_branch_devices_path(branch,"1") %></li>
+    <li> <%= link_to branch.branchname, manage_branch_devices_path(branch,1) %></li>
 <% end %>
 </ul>

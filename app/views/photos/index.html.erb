@@ -1,0 +1,12 @@
+<% @photos.each do |photo| %>
+  <div class="ui-corner-all custom-corners">
+    <div class="ui-body ui-body-a">
+      <%= photo.explain %>
+      <%= link_to '编辑', edit_device_photo_path(photo.device_id,photo.id) %>
+      <%= link_to '删除', device_photo_path(photo.device_id,photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div><%= image_tag photo.image.url, "style" => "width:100%" %></div>
+    </div>
+  </div>
+    <% end %>
+
+  <%= link_to '添加新图片', new_device_photo_path, "data-role" => "button" %>

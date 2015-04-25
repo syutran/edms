@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415152530) do
+ActiveRecord::Schema.define(version: 20150425034100) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branchname"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150415152530) do
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "admin_id"
+    t.integer  "group_id"
     t.integer  "user_id"
   end
 
@@ -96,6 +96,18 @@ ActiveRecord::Schema.define(version: 20150415152530) do
     t.string   "network_address"
     t.string   "installation_address"
     t.text     "remarks"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "device_id"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "explain"
   end
 
   create_table "users", force: :cascade do |t|

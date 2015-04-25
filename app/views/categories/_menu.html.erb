@@ -1,0 +1,10 @@
+<div data-role="navbar">
+  <ul>
+  <li><%= link_to "全部分类", categories_path, "data-icon"=>"bullets" %></li>
+  <li><%= link_to '创建新类型', new_category_path, "data-icon"=>"plus" %></li>
+  <% if controller.action_name == "show" %>
+    <li><%= link_to '编辑分类', edit_category_path, "data-icon"=>"edit" %></li>
+    <li><%= link_to '删除该类', category_path, :method => :delete,"data-ajax"=>"false", "data-icon"=>"delete" %></li>
+  <% end %>
+</ul>
+</div>

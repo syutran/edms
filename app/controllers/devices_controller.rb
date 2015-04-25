@@ -4,7 +4,12 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.where("branch_id = ? and status < 12", current_user.branch_id).order("category_id")
+    @devices = Device.where("branch_id = ? and status < 12", current_user.branch_id)
+    @devices_groups = @devices.group_by{|g| g.member}
+  end
+  def category 
+    @devices = Device.where("branch_id = ? and status < 12", current_user.branch_id)
+    @devices_groups = @devices.group_by{|g| g.category}
   end
 
   # GET /devices/1
@@ -18,10 +23,16 @@ class DevicesController < ApplicationController
     @device.status = 1
     @device.group_id = current_user.group_id
     @device.branch_id = current_user.branch_id
+    @categories = Category.where(level:1,branch_id:current_user.group_id)
+    @brands = Device.where(group_id:current_user.group_id).select(:brand).distinct.pluck(:brand)
+    @modes = Device.where(group_id:current_user.group_id).pluck(:brand_type)
   end
 
   # GET /devices/1/edit
   def edit
+    @categories = Category.where(level:1,branch_id:current_user.group_id)
+    @brands = Device.where(group_id:current_user.group_id).pluck(:brand)
+    @modes = Device.where(group_id:current_user.group_id).pluck(:brand_type)
   end
 
   # POST /devices
@@ -56,8 +67,8 @@ class DevicesController < ApplicationController
       end
     else
       @source_device = Device.find(params[:id])
-      @device_copy=Device.new(device_params)
-      @device_copy.copy_id = @source_device.id
+      @device_copy = Device.find_by_copy_id(@source_device.id) || Device.new(device_params)
+      @device_copy.copy_id = @source_device.id if @device_copy.copy_id.blank?
       @device_copy.status = 2
       @device_copy.save
       @source_device.update(:status => 12)
@@ -65,6 +76,7 @@ class DevicesController < ApplicationController
         format.html { redirect_to @device_copy, notice: 'Device was successfully updated.' }
         format.json { render :show, status: :ok, location: @device_copy }
     end
+    
   end
 end
 

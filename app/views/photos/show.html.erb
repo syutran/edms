@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @photo.device_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @photo.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @photo.image.url %>
+</p>
+
+<p>
+  <strong>Explain:</strong>
+  <%= @photo.explain %>
+</p>
+
+<%= link_to 'Edit', edit_device_photo_path(@photo.device_id,@photo.id) %> |
+<%= link_to 'Back', device_photos_path(@photo.device_id) %>

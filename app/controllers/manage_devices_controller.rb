@@ -1,10 +1,11 @@
 class ManageDevicesController < ApplicationController
   # before_action current_user.status == 99 # 只允许管理员进入
-
+  before_action :set_branch, only: [:branch_devices]
+  @branch
   def index
     @changed_devices=Device.where("status = 2 and group_id = ?", current_user.group_id) 
     @new_devices=Device.where("status = 1 and group_id = ?", current_user.group_id) 
-    @branches = current_user.branch.children
+    @branches = current_user.branch.children.order(:coding)
   end
 
   def newed
@@ -22,7 +23,7 @@ class ManageDevicesController < ApplicationController
 
     respond_to do |format|
       if @new_device.save
-        format.html { redirect_to manage_devices_index_path, notice: '已成功确认！' }
+        format.html { redirect_to manage_index_path, notice: '已成功确认！' }
       else
         format.html { render :index, notice: '确认失败！' }
       end
@@ -51,7 +52,7 @@ class ManageDevicesController < ApplicationController
     respond_to do |format|
       if @source_device.save
         @change_device.destroy
-        format.html { redirect_to manage_devices_index_path, notice: '已成功确认！' }
+        format.html { redirect_to manage_index_path, notice: '已成功确认！' }
       else
         format.html { render :index, notice: '确认失败！' }
       end
@@ -59,10 +60,24 @@ class ManageDevicesController < ApplicationController
   end
 
   def branch_devices
-    if params[:mode]==1
-      @branch_devices = Device.where("status > 10 and branch_id = ?", params[:id]).order("category_id")
+    # @branch = params[:branch_id]
+    if params[:mode]=="1"
+      @branch_devices = Device.where("status > 10 and branch_id = ?", params[:branch_id]).order("category_id")
+      @branch_devices_groups=@branch_devices.group_by{|g| g.category}
+      @mode = 1
+
     else
-      @branch_devices = Device.where("status > 10 and branch_id = ?", params[:id]).order("member")
+      @branch_devices = Device.where("status > 10 and branch_id = ?", params[:branch_id]).order("member")
+      @order = "member"
     end
+  end
+  def show
+    @device = Device.find(params[:id])
+  end
+
+  private
+  
+  def set_branch
+    @branch = Branch.find(params[:branch_id])
   end
 end
